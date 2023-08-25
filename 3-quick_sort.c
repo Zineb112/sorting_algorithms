@@ -14,7 +14,7 @@ void swap_nbrs(int *x, int *y)
 {
 	int temp;
 
-	tmp = *x;
+	temp = *x;
 	*x = *y;
 	*y = temp;
 }
@@ -46,9 +46,9 @@ int lmt_partition(int *array, size_t size, int left_s, int right_s)
 		}
 	}
 
-	if (array[above_s] > * pivot _s)
+	if (array[above_s] > * pivot_s)
 	{
-		swap_nbrs(array + above_s,  pivot _s);
+		swap_nbrs(array + above_s,  pivot_s);
 		print_array(array, size);
 	}
 
