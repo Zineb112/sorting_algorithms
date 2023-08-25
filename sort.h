@@ -1,6 +1,8 @@
 #ifndef _SORT_H_
 #define _SORT_H_
 #include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * enum bool - Enumration of Boolean values.
