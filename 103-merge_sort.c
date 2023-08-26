@@ -53,7 +53,7 @@ void merge_recursive(int *sub, int *buffr, size_t front, size_t back)
 		mid = front + (back - front) / 2;
 		merge_recursive(sub, buffr, front, mid);
 		merge_recursive(sub, buffr, mid, back);
-		merge_subarr(sub, buffr, front, mid, back);
+		merge_sub(sub, buffr, front, mid, back);
 	}
 }
 
