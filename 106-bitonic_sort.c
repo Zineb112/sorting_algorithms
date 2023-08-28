@@ -1,6 +1,7 @@
 #include "sort.h"
-#define VRAI 0
-#define FAUX 1
+#define UP 0
+#define DOWN 1
+
 
 void swap_nbrs(int *a, int *b);
 void bitonic_mrg(int *array, size_t size, size_t start, size_t seque,
@@ -39,8 +40,8 @@ void bitonic_mrg(int *array, size_t size, size_t start, size_t seque,
 	{
 		for (i = start; i < start + jmp; i++)
 		{
-			if ((flw == VRAI && array[i] > array[i + jmp]) ||
-			    (flw == FAUX && array[i] < array[i + jmp]))
+			if ((flw == UP && array[i] > array[i + jmp]) ||
+			    (flw == DOWN && array[i] < array[i + jmp]))
 				swap_nbrs(array + i, array + i + jmp);
 		}
 		bitonic_mrg(array, size, start, jmp, flw);
@@ -59,15 +60,15 @@ void bitonic_mrg(int *array, size_t size, size_t start, size_t seque,
 void bitonic_seque(int *array, size_t size, size_t start, size_t seque, char flw)
 {
 	size_t cut = seque / 2;
-	char *str = (flw == VRAI) ? "VRAI" : "FAUX";
+	char *str = (flw == UP) ? "UP" : "DOWN";
 
 	if (seque > 1)
 	{
 		printf("Merging [%lu/%lu] (%s):\n", seque, size, str);
 		print_array(array + start, seque);
 
-		bitonic_seque(array, size, start, cut, VRAI);
-		bitonic_seque(array, size, start + cut, cut, FAUX);
+		bitonic_seque(array, size, start, cut, UP);
+		bitonic_seque(array, size, start + cut, cut, DOWN);
 		bitonic_mrg(array, size, start, seque, flw);
 
 		printf("Result [%lu/%lu] (%s):\n", seque, size, str);
@@ -89,6 +90,7 @@ void bitonic_sort(int *array, size_t size)
 	if (array == NULL || size < 2)
 		return;
 
-	bitonic_seque(array, size, 0, size, VRAI);
+	bitonic_seque(array, size, 0, size, UP);
 }
+
 
