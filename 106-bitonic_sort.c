@@ -1,7 +1,8 @@
 #include "sort.h"
 
 void swap_nbrs(int *a, int *b);
-void bitonic_mrg(int *array, size_t size, size_t start, size_t seque,char flw);
+void bitonic_mrg(int *array, size_t size, size_t start, size_t seque,
+		char flw);
 void bitonic_seque(int *array, size_t size, size_t start, size_t seque, char flw);
 void bitonic_sort(int *array, size_t size);
 
